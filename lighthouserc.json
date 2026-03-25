@@ -1,0 +1,22 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": ".",
+      "url": [
+        "/index.html",
+        "/apps/questio.html",
+        "/apps/dont-you-dare.html",
+        "/apps/arcana.html",
+        "/apps/draw-studio.html",
+        "/apps/greedy-princess.html"
+      ],
+      "numberOfRuns": 1
+    },
+    "assert": {
+      "preset": "lighthouse:recommended"
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

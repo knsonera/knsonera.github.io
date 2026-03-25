@@ -1,309 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="VAcoZsAQ5W63dDn53Kt8TvwjRjbpvD2xIqL4lI09Xx4" />
-    <title>Mind Games Lab LLC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F5F7FA;
-            color: #333;
-            line-height: 1.8;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #d9d9d9;
-            padding: 20px 50px;
-            top: 0;
-            z-index: 1000;
-        }
-        header img {
-            max-height: 100px;
-            background-color: #d9d9d9;
-            padding: 10px;
-        }
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        nav a:hover {
-            color: #5D3A78;
-        }
-        .cta-button {
-            background-color: #5D3A78;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .cta-button:hover {
-            background-color: #835DA5;
-        }
-        .hero {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            background-color: white;
-        }
-        .hero-text {
-            max-width: 500px;
-        }
-        .hero h1 {
-            font-size: 40px;
-            font-weight: 800;
-            color: #5D3A78;
-        }
-        .hero p {
-            font-size: 18px;
-            color: #555;
-        }
-        .hero img {
-            max-width: 400px;
-            border-radius: 2px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .section {
-            padding: 0px 30px 30px 30px;
-            text-align: center;
-        }
-        .section h2 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #5D3A78;
-        }
-        .section p {
-            font-size: 18px;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .tiles {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .tile {
-            background-color: #FFFFFF;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 600px;
-        }
-        .tile img {
-            max-width: 100px;
-            margin: 0 auto 20px;
-            display: block;
-        }
-        .tile h3 {
-            color: #5D3A78;
-            font-size: 22px;
-        }
-        .tile p {
-          padding-bottom: 10px;
-        }
-        .tile ul {
-          text-align: left;
-          margin: 0 auto 10px;
-          padding-left: 20px;
-          max-width: 520px;
-          color: #555;
-          line-height: 1.6;
-        }
-        .note {
-          color: #4da5c6;
-          font-weight: 600;
-          padding-top: 20px;
-        }
-        .description {
-          font-size: 18px;
-          color: #444;
-          line-height: 1.8;
-          text-align: justify;
-          padding: 15px;
-        }
-        .about-section img {
-          max-width: 300px;
-        }
-        /* Disable background scrolling when modal is open */
-        body.modal-open {
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="VAcoZsAQ5W63dDn53Kt8TvwjRjbpvD2xIqL4lI09Xx4">
+  <meta name="description" content="Mind Games Lab builds playful apps and games that make growth, creativity, and daily life more engaging.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#5D3A78">
+  <link rel="canonical" href="https://mindgameslab.com/">
 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mind Games Lab LLC">
+  <meta property="og:description" content="Playful apps and games for habits, creativity, and everyday courage.">
+  <meta property="og:url" content="https://mindgameslab.com/">
+  <meta property="og:image" content="https://mindgameslab.com/assets/mindgames.png">
 
-        footer {
-            text-align: center;
-            padding: 50px;
-            background-color: #5D3A78;
-            color: white;
-            font-size: 14px;
-        }
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mind Games Lab LLC">
+  <meta name="twitter:description" content="Playful apps and games for habits, creativity, and everyday courage.">
+  <meta name="twitter:image" content="https://mindgameslab.com/assets/mindgames.png">
 
-        footer a {
-          color: #fff;
-          text-decoration: underline;
-        }
-        @media (max-width: 900px) {
-            header {
-                justify-content: space-between;
-                padding: 15px 30px;
-            }
-            header img {
-                max-height: 80px;
-            }
-            nav {
-                display: none;
-            }
-            .cta-button {
-              text-align: center;
-            }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                background: url('assets/me.png') no-repeat top center/cover;
-                padding-top: 400px;
-            }
-            .hero-text {
-                background: rgba(255, 255, 255, 0.6);
-                color: white;
-                padding: 30px;
-                border-radius: 10px;
-                max-width: 90%;
-            }
-            .hero h1 {
-                font-size: 25px;
-                font-weight: 800;
-                color: #5D3A78;
-                margin: 0;
-            }
-            .hero p {
-                margin-bottom: 30px;
-            }
-            .hero img {
-                display: none;
-            }
-            .tiles {
-                flex-direction: column;
-                align-items: center;
-            }
-            .about-section img {
-                max-width: 250px;
-            }
-        }
-    </style>
+  <title>Mind Games Lab LLC</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE1DBT4G8M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LE1DBT4G8M');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mind Games Lab LLC",
+    "url": "https://mindgameslab.com/",
+    "logo": "https://mindgameslab.com/assets/name-logo.png",
+    "sameAs": [
+      "https://draw.mindgameslab.com/",
+      "https://princess.mindgameslab.com/",
+      "https://dailyarcana.app/"
+    ]
+  }
+  </script>
 </head>
-
 <body>
-    <header>
-        <img src="assets/name-logo.png" alt="Mind Games Lab Logo">
-        <nav>
-            <a href="#projects">Projects</a>
-            <a href="#volunteer">Volunteering</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <a href="#contact" class="cta-button">Get in Touch</a>
-    </header>
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Making life a game worth playing.</h1>
-            <p>At MindGamesLab we don’t do productivity hacks. We build playful digital tools for people who see growth as an adventure.</p> <p>Because life isn’t a problem to solve. It’s a game to explore.</p>
-            <a href="#projects" class="cta-button">Explore Our Apps</a>
-        </div>
-        <img src="assets/me.png" alt="Alina Uzhvieva Portrait">
-    </section>
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="tiles">
-            <div class="tile">
-                <img src="assets/habitbuddies.png" alt="Habit Buddies">
-                <h3>QuestiO: Habit Quests</h3>
-                <p>QuestiO is a mobile app that turns habit-building into a team adventure. If you want to start running, reading, meditating, or even flossing regularly, you can create a quest in QuestiO for a week, a month, or any timeframe and invite friends to build the habit together.</p>
-                <p>It’s easier together—you can join friends' quests, support each other with likes and power-ups, and track your friends’ progress. This makes the process not only effective but also genuinely fun!</p>
-                <p class="note">Available on <a href="https://apps.apple.com/us/app/questio-habit-quests/id6759207289">App Store (iOS)</a>. Coming soon in <a href="">Google Play (Android)</a>.</p>
-                <p class="note"><a href="https://mindgameslab.com/privacy/questio.html">Privacy Policy</a></p>
-            </div>
-            <div class="tile">
-                <img src="assets/dont-you-dare.png" alt="Don't You Dare">
-                <h3>Don't You Dare</h3>
-                <p>Don’t You Dare is a playful self-challenge app. Each day, you get a fun, doable dare that nudges you to step outside your comfort zone, from acts of confidence and creativity to bursts of joy and self-care.</p>
-                <p>No pressure, no regrets, these lighthearted dares will make you feel more alive, one day at a time. Celebrate your wins, reroll if you’re not feeling it, and rediscover how good it feels to be brave.</p>
-                <p class="note">Available on <a href="https://apps.apple.com/us/app/dont-you-dare/id6753778076">App Store (iOS)</a> and <a href="https://play.google.com/store/apps/details?id=com.mindgameslab.dontyoudare">Google Play (Android)</a>.</p>
-                <p class="note"><a href="https://mindgameslab.com/privacy/dontyoudare.html">Privacy Policy</a></p>
-            </div>
-            <div class="tile">
-                <img src="assets/arcana.png" alt="Arcana">
-                <h3>Arcana</h3>
-                <p>Arcana is a fun and simple self-discovery tool, a web app that helps you look inward without taking it all too seriously. It’s not about predicting the future, it’s about pausing, reflecting, and seeing everyday decisions from a new angle.</p>
-                <p>Inspired by traditional tarot imagery, Arcana turns self-reflection into a small daily ritual of curiosity and encouragement. Think of it as a conversation starter with yourself, less about destiny, more about discovering what’s already within you.</p>
-                <p class="note"><a href="https://dailyarcana.app/">Available now!</a></p>
-            </div>
-            <div class="tile">
-                <img src="assets/studio.png" alt="Draw Studio">
-                <h3>Draw Studio</h3>
-                <p>Draw Studio is a clean, modern take on classic PaintBrush: simple to start, pleasant to use, and built for quick sketching, annotation, and playful visual ideas.</p>
-                <p>You get familiar drawing tools with a polished interface, layer support, undo/redo, and export/import options that make it easy to save, continue, and share your work.</p>
-                <p class="note"><a href="https://draw.mindgameslab.com/">Open Draw Studio</a></p>
-            </div>
-            <div class="tile">
-                <img src="assets/princess.png" alt="Greedy Princess">
-                <h3>Greedy Princess</h3>
-                <p>Greedy Princess is a colorful platform adventure where you run, jump, and collect crystals to unlock each exit gate.</p>
-                <p>Play through 6 handcrafted levels, including bonus stages after level 3 with tougher enemies, trickier movement, and timed challenges.</p>
-                <p>Collect every crystal you can, find hidden hard-path bonuses, and chase perfect no-death clears while outsmarting patrol, jumper, and ranger enemies.</p>
-                <p class="note"><a href="https://princess.mindgameslab.com/">Play Greedy Princess</a></p>
-            </div>
-        </div>
-    </section>
-    <section id="volunteer" class="section">
-        <h2>Community Contributions</h2>
-        <div class="tiles">
-          <div class="tile">
-              <img src="assets/sva.png" alt="SVA Icon">
-              <h3>Gurudevi Nirmalananda App</h3>
-              <p>Developed for the spiritual teacher Gurudevi Nirmalananda Saraswati, a modern-day sage and Guru, this app provides yogic wisdom for modern living. The app contains a collection of quotes, teachings, meditative insights, podcasts and videos, and informs the yogic community about upcoming programs and events.</p>
-              <p class="note">Available on <a href="https://apps.apple.com/us/app/gurudevi-nirmalananda/id6502962204">App Store (iOS)</a> and <a href="https://play.google.com/store/apps/details?id=org.svaroopa.GNSapp">Google Play (Android)</a>.</p>
-          </div>
+  <header>
+    <img src="assets/name-logo.png" alt="Mind Games Lab Logo">
+    <nav aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#volunteer">Volunteering</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="cta-button" aria-label="Contact Mind Games Lab" data-cta="header-contact" data-location="home">Get in Touch</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Making life a game worth playing.</h1>
+      <p>At MindGamesLab, we build playful digital products for people who want growth to feel alive, social, and genuinely fun.</p>
+      <p>From habit quests to creative tools and mini adventures, every product is designed to make progress feel rewarding.</p>
+      <div class="hero-cta-row">
+        <a href="#projects" class="cta-button" aria-label="Explore Mind Games Lab projects" data-cta="hero-explore-apps" data-location="home">Explore Our Apps</a>
+        <a href="mailto:admin@mindgameslab.com?subject=MindGamesLab%20Product%20Updates%20Subscription&body=Dear%20Mind%20Games%20Lab%20Team%2C%0A%0AI%20hope%20you%20are%20doing%20well%2E%0A%0APlease%20add%20me%20to%20the%20MindGamesLab%20product%20updates%20mailing%20list%2E%0A%0AAreas%20of%20interest%3A%20%5BQuestiO%20%2F%20Don%27t%20You%20Dare%20%2F%20Arcana%20%2F%20Draw%20Studio%20%2F%20Greedy%20Princess%5D%0APreferred%20Email%3A%0A%0AThank%20you%20for%20your%20time%20and%20support%2E%0A%0AKind%20regards%2C%0AName%3A" class="cta-button cta-button-secondary" aria-label="Subscribe to product updates by email" data-email-context="updates_hero" data-cta="updates-subscribe-hero" data-location="home">Get Product Updates</a>
       </div>
-    </section>
-    <section id="about" class="section">
-        <h2>Meet the Founder</h2>
-        <div class="about-section">
-            <img src="assets/founder.jpg" alt="Alina Uzhvieva Portrait">
-            <p class="description">I am Alina, a software engineer, a founder of MindGamesLab and an eternal explorer of how tech can make life a little more playful. With a background in both computer science and psychology, and years of experience in software engineering, I founded Mind Games Lab to create apps that inspire healthier habits, support in daily challenges, build meaningful connections and empower people to navigate their daily lives with ease and joy. </p>
-            <p class="description">My goal and mission is simple: to turn growth and self-care into something that actually feels alive and fantastic, not like another boring task on your list.</p>
-            <p class="note">More information in my <a href="https://mindgameslab.com/portfolio">Portfolio</a></p>
-        </div>
-    </section>
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p class="description">Whether you have a question about current projects, collaboration opportunities, or just want to connect, feel free to reach out. Your feedback and ideas help Mind Games Lab grow and improve!</p>
-        <p class="note">Email: <a href="mailto:admin@mindgameslab.com">admin@mindgameslab.com</a></p>
-        <p class="description"></p>
-    </section>
+    </div>
+    <img src="assets/me.webp" alt="Alina Uzhvieva Portrait" width="400" height="650" fetchpriority="high">
+  </section>
 
-    <footer>
-      © 2025 Mind Games Lab LLC </a>
-    </footer>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <p>Products for habits, confidence, creativity, and reflection. Available across iOS, Android, and the web.</p>
+    <div class="tiles">
+      <div class="tile">
+        <img src="assets/habitbuddies.webp" alt="QuestiO app icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>QuestiO: Habit Quests</h3>
+        <p>QuestiO turns habit-building into a team adventure. Start a quest for running, reading, meditation, or any habit you want to build, then invite friends and stay accountable together.</p>
+        <p>Best for people who are more consistent when growth is social, structured, and a little playful.</p>
+        <p class="note">Available on <a href="https://apps.apple.com/us/app/questio-habit-quests/id6759207289" onclick="trackCta('questio-ios','home')">App Store (iOS)</a>. Google Play (Android) coming soon.</p>
+        <p class="note"><a href="https://mindgameslab.com/apps/questio.html">Learn more</a> | <a href="https://mindgameslab.com/privacy/questio.html">Privacy Policy</a></p>
+      </div>
 
+      <div class="tile">
+        <img src="assets/dont-you-dare.webp" alt="Don't You Dare app icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>Don't You Dare</h3>
+        <p>Don’t You Dare gives you one fun daily challenge to nudge you outside your comfort zone, whether that means confidence, creativity, joy, or self-care.</p>
+        <p>Best for people who want small brave actions every day without pressure or perfectionism.</p>
+        <p class="note">Available on <a href="https://apps.apple.com/us/app/dont-you-dare/id6753778076" onclick="trackCta('dyd-ios','home')">App Store (iOS)</a> and <a href="https://play.google.com/store/apps/details?id=com.mindgameslab.dontyoudare" onclick="trackCta('dyd-android','home')">Google Play (Android)</a>.</p>
+        <p class="note"><a href="https://mindgameslab.com/apps/dont-you-dare.html">Learn more</a> | <a href="https://mindgameslab.com/privacy/dontyoudare.html">Privacy Policy</a></p>
+      </div>
 
+      <div class="tile">
+        <img src="assets/arcana.webp" alt="Arcana app icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>Arcana</h3>
+        <p>Arcana is a light self-reflection web app inspired by tarot imagery. It helps you pause, think, and look at everyday decisions from a fresh perspective.</p>
+        <p>Best for daily check-ins, journaling prompts, and mindful micro-rituals.</p>
+        <p class="note"><a href="https://dailyarcana.app/" onclick="trackCta('arcana-web','home')">Open Arcana</a> | <a href="https://mindgameslab.com/apps/arcana.html">Learn more</a></p>
+      </div>
+
+      <div class="tile">
+        <img src="assets/studio.webp" alt="Draw Studio icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>Draw Studio</h3>
+        <p>Draw Studio is a clean, modern take on classic PaintBrush for quick sketches, visual notes, and playful drawing sessions.</p>
+        <p>It offers familiar tools in a polished layout with layers, undo/redo, and export/import so your ideas stay easy to capture and continue.</p>
+        <p class="note"><a href="https://draw.mindgameslab.com/" onclick="trackCta('draw-web','home')">Open Draw Studio</a> | <a href="https://mindgameslab.com/apps/draw-studio.html">Learn more</a></p>
+      </div>
+
+      <div class="tile">
+        <img src="assets/princess.webp" alt="Greedy Princess game icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>Greedy Princess</h3>
+        <p>Greedy Princess is a colorful platform adventure where you run, jump, and collect crystals to unlock each level’s exit gate.</p>
+        <p>You’ll progress through 6 handcrafted levels with bonus stages, clever enemy patterns, dynamic level mechanics, and persistent score tracking that rewards better runs over time.</p>
+        <p class="note"><a href="https://princess.mindgameslab.com/" onclick="trackCta('princess-web','home')">Play Greedy Princess</a> | <a href="https://mindgameslab.com/apps/greedy-princess.html">Learn more</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="section">
+    <h2>Why People Choose MindGamesLab</h2>
+    <div class="trust-grid">
+      <article class="trust-card">
+        <h3>Playful by Design</h3>
+        <p>We design for motivation, not pressure. Progress should feel engaging, not exhausting.</p>
+      </article>
+      <article class="trust-card">
+        <h3>Cross-Platform</h3>
+        <p>Our products are available across iOS, Android, and the web so people can use what fits their daily life.</p>
+      </article>
+      <article class="trust-card">
+        <h3>Privacy-Conscious</h3>
+        <p>Clear privacy pages and practical settings are part of the product experience from day one.</p>
+      </article>
+      <article class="trust-card">
+        <h3>Human-Centered</h3>
+        <p>Built by a software engineer with psychology background to blend technical quality with behavior design.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="volunteer" class="section">
+    <h2>Community Contributions</h2>
+    <div class="tiles">
+      <div class="tile">
+        <img src="assets/sva.webp" alt="Gurudevi Nirmalananda app icon" width="100" height="100" loading="lazy" decoding="async">
+        <h3>Gurudevi Nirmalananda App</h3>
+        <p>Developed for the spiritual teacher Gurudevi Nirmalananda Saraswati, this app shares yogic wisdom for modern life through teachings, podcasts, videos, meditative insights, and event updates.</p>
+        <p class="note">Available on <a href="https://apps.apple.com/us/app/gurudevi-nirmalananda/id6502962204" onclick="trackCta('gns-ios','home')">App Store (iOS)</a> and <a href="https://play.google.com/store/apps/details?id=org.svaroopa.GNSapp" onclick="trackCta('gns-android','home')">Google Play (Android)</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>Meet the Founder</h2>
+    <div class="about-section">
+      <img src="assets/founder.webp" alt="Alina Uzhvieva portrait" width="300" height="450" loading="lazy" decoding="async">
+      <p class="description">I am Alina, a software engineer, founder of MindGamesLab, and an eternal explorer of how tech can make life more playful. With a background in both computer science and psychology, I build products that support healthier habits, meaningful connection, and everyday courage.</p>
+      <p class="description">My mission is simple: make growth and self-care feel alive and exciting, not like another task on your list.</p>
+      <p class="note">More information in my <a href="https://mindgameslab.com/portfolio">Portfolio</a></p>
+    </div>
+  </section>
+
+  <section id="updates" class="section">
+    <h2>Get Product Updates</h2>
+    <div class="email-strip">
+      <p>Want launch news, feature drops, and new game releases? Join the email update list.</p>
+      <div class="email-actions">
+        <a class="cta-button" href="mailto:admin@mindgameslab.com?subject=MindGamesLab%20Product%20Updates%20Subscription&body=Dear%20Mind%20Games%20Lab%20Team%2C%0A%0AI%20hope%20you%20are%20doing%20well%2E%0A%0APlease%20add%20me%20to%20the%20MindGamesLab%20product%20updates%20mailing%20list%2E%0A%0AAreas%20of%20interest%3A%20%5BQuestiO%20%2F%20Don%27t%20You%20Dare%20%2F%20Arcana%20%2F%20Draw%20Studio%20%2F%20Greedy%20Princess%5D%0APreferred%20Email%3A%0A%0AThank%20you%20for%20your%20time%20and%20support%2E%0A%0AKind%20regards%2C%0AName%3A" data-email-context="updates_section" data-cta="updates-subscribe-section" data-location="home">Subscribe by Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p class="description">Whether you have a question about current projects, collaboration opportunities, or just want to connect, feel free to reach out.</p>
+    <p class="note">Email: <a href="mailto:admin@mindgameslab.com?subject=MindGamesLab%20Website%20Inquiry&body=Dear%20Mind%20Games%20Lab%20Team%2C%0A%0AI%20hope%20you%20are%20doing%20well%2E%0A%0AI%20am%20reaching%20out%20regarding%3A%20%5Bcollaboration%20%2F%20question%20%2F%20feedback%5D%2E%0A%0AMessage%20details%3A%0A%0A%0AThank%20you%20for%20your%20time%20and%20consideration%2E%0A%0AKind%20regards%2C%0AName%3A%0AEmail%3A" data-email-context="contact_section">admin@mindgameslab.com</a></p>
+  </section>
+
+  <footer>
+    <div>© 2026 Mind Games Lab LLC</div>
+    <div class="footer-links"><a href="https://mindgameslab.com/privacy/questio.html">Privacy</a></div>
+  </footer>
+
+  <script src="assets/analytics.js"></script>
 </body>
-
 </html>
