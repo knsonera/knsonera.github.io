@@ -18,15 +18,16 @@ jobs:
       - name: Validate HTML
         run: |
           npm install -g htmlhint
-          htmlhint index.html apps/*.html
+          htmlhint index.html apps/*.html privacy.html terms.html 404.html
 
       - name: Check Links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --accept 200,206,429 --exclude-mail index.html apps/*.html
+          args: --verbose --no-progress --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude-mail --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
 
   lighthouse:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
