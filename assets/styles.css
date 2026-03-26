@@ -200,7 +200,9 @@ nav a:focus-visible {
 }
 
 .about-section img {
+  width: 100%;
   max-width: 300px;
+  height: auto;
 }
 
 .trust-grid {
@@ -455,7 +457,9 @@ footer a {
   }
 
   .about-section img {
+    width: 100%;
     max-width: 250px;
+    height: auto;
   }
 
   .app-hero {
