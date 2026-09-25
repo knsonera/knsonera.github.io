@@ -20,10 +20,12 @@ jobs:
           npm install -g htmlhint
           htmlhint index.html apps/*.html privacy.html terms.html 404.html
 
+      # Current lychee: mail links are skipped by default (the old --exclude-mail flag is gone and made
+      # the step exit 2), and root-relative links like /privacy.html need --root-dir to resolve.
       - name: Check Links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude-mail --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$" --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
+          args: --verbose --no-progress --root-dir "${{ github.workspace }}" --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$" --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
 
   lighthouse:
     runs-on: ubuntu-latest
