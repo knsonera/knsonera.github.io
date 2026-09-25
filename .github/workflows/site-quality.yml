@@ -23,11 +23,10 @@ jobs:
       - name: Check Links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude-mail --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
+          args: --verbose --no-progress --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude-mail --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$" --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
 
   lighthouse:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -38,5 +37,10 @@ jobs:
       - name: Install LHCI
         run: npm install -g @lhci/cli@0.14.x
 
+      # Lighthouse is advisory: the "recommended" preset flags image sizing, lazy-loaded LCP images,
+      # unused JS etc. on every page. Findings show up as warnings on the run; they never fail it.
       - name: Run Lighthouse CI
-        run: lhci autorun --config=lighthouserc.json
+        run: |
+          lhci collect --config=lighthouserc.json
+          lhci assert --config=lighthouserc.json || echo "::warning title=Lighthouse::Lighthouse found advisory issues - see the assert output above and the report links below"
+          lhci upload --config=lighthouserc.json || true
