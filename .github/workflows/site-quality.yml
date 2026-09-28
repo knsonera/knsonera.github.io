@@ -22,10 +22,12 @@ jobs:
 
       # Current lychee: mail links are skipped by default (the old --exclude-mail flag is gone and made
       # the step exit 2), and root-relative links like /privacy.html need --root-dir to resolve.
+      # dailyarcana.app/privacy, /terms and /promises are routes of a single-page app on GitHub Pages: they
+      # answer with a real HTTP 404 plus a JavaScript redirect, and only a browser sees the page, so skip them.
       - name: Check Links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --root-dir "${{ github.workspace }}" --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$" --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" index.html apps/*.html privacy.html terms.html 404.html
+          args: --verbose --no-progress --root-dir "${{ github.workspace }}" --max-retries 2 --retry-wait-time 2 --accept 200,206,301,302,307,308,403,429 --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$" --exclude "https://apps.apple.com/.*" --exclude "https://play.google.com/.*" --exclude "^https://dailyarcana\.app/(privacy|terms|promises)$" index.html apps/*.html privacy.html terms.html 404.html
 
   lighthouse:
     runs-on: ubuntu-latest
