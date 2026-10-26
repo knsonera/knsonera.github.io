@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Don't You Dare: Daily Dares</title>
+  <meta name="description" content="One brave thing a day. Rate the fear, do the dare, watch it shrink. Free, no account, no ads.">
+  <meta property="og:title" content="Don't You Dare: Daily Dares">
+  <meta property="og:description" content="One brave thing a day. Rate the fear, do the dare, watch it shrink. Free, no account, no ads.">
+  <meta property="og:image" content="https://mindgameslab.com/assets/dont-you-dare.png?v=2">
+  <meta property="og:url" content="https://mindgameslab.com/dyd/">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- The link Don't You Dare puts in every share: sends phones straight to their store, shows both badges elsewhere. -->
+  <script>
+    (function () {
+      var ua = navigator.userAgent || "";
+      var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      if (/Android/i.test(ua)) location.replace("https://play.google.com/store/apps/details?id=com.mindgameslab.dyd");
+      else if (ios) location.replace("https://apps.apple.com/app/id6753778076");
+    })();
+  </script>
+  <style>
+    :root { --poster: #FF4A1C; --ink: #140F0C; --paper: #FFF1E4; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--poster); color: var(--ink); font-family: -apple-system, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+    main { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 16px; }
+    h1 { margin: 0; font-size: 44px; line-height: 1; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
+    p { margin: 0; font-size: 17px; line-height: 1.45; }
+    a.btn { display: block; text-align: center; padding: 16px; border-radius: 16px; font-weight: 800; font-size: 17px; text-decoration: none; }
+    .ink { background: var(--ink); color: var(--paper); }
+    .outline { border: 3px solid var(--ink); color: var(--ink); }
+    small { font-size: 13px; }
+    small a { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Don't You Dare</h1>
+    <p>One brave thing a day. Rate the fear, do the dare, watch it shrink. Free, no account, no ads.</p>
+    <a class="btn ink" href="https://apps.apple.com/app/id6753778076">Get it on the App Store</a>
+    <a class="btn outline" href="https://play.google.com/store/apps/details?id=com.mindgameslab.dyd">Get it on Google Play</a>
+    <small>By <a href="https://mindgameslab.com/apps/dont-you-dare.html">Mind Games Lab</a></small>
+  </main>
+</body>
+</html>
