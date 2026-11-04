@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["LG3LN3XMW8.com.mindgameslab.dontyoudare"],
+        "components": [{ "/": "/dyd" }, { "/": "/dyd/*" }],
+        "appID": "LG3LN3XMW8.com.mindgameslab.dontyoudare",
+        "paths": ["/dyd", "/dyd/*"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+# GitHub Pages (Jekyll) skips dot folders unless they are listed here. .well-known holds the app-link files.
+include: [".well-known"]
