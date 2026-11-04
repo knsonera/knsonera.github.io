@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.mindgameslab.dyd",
-      "sha256_cert_fingerprints": ["PLAY_APP_SIGNING_SHA256_FROM_PLAY_CONSOLE"]
+      "sha256_cert_fingerprints": ["D0:28:1D:52:F8:FB:1A:95:A1:66:E4:F5:21:9D:41:6F:58:32:A4:3C:DF:F2:93:55:3B:9C:25:2E:2D:FE:3A:C5"]
     }
   }
 ]
