@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Arcana · Mind Games Lab</title>
+  <!-- Cross-promo link from the phone apps (owner decision 2, 2026-11-13). Points at dailyarcana.app until the
+       WordByBird switch; on that day only TARGET changes (no app update). Counts the visit, keeps the query string. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE1DBT4G8M"></script>
+  <script>
+    var TARGET = "https://dailyarcana.app/";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-LE1DBT4G8M");
+    (function () {
+      var q = new URLSearchParams(location.search);
+      if (!q.get("utm_source")) { q.set("utm_source", "mindgameslab"); q.set("utm_medium", "go_link"); }
+      var url = TARGET + "?" + q.toString();
+      var gone = false;
+      function go() { if (!gone) { gone = true; location.replace(url); } }
+      gtag("event", "go_redirect", { target: "arcana", transport_type: "beacon", event_callback: go });
+      setTimeout(go, 800);
+    })();
+  </script>
+</head>
+<body style="font-family:-apple-system,sans-serif;padding:24px">
+  <p><a href="https://dailyarcana.app/">Continue to Arcana →</a></p>
+</body>
+</html>
