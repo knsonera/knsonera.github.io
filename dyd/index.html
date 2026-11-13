@@ -16,13 +16,36 @@
   <meta property="og:image" content="https://mindgameslab.com/assets/dont-you-dare.png?v=2">
   <meta property="og:url" content="https://mindgameslab.com/dyd/">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- The link Don't You Dare puts in every share: sends phones straight to their store, shows both badges elsewhere. -->
+  <!-- The link Don't You Dare puts in every share (and the dare-story link): sends phones straight to their store,
+       shows both badges elsewhere. 2026-11-13: GA counts the visit (with its utm_*) BEFORE the redirect (it used to
+       redirect first, so nothing was counted), and the utm_* ride along to Google Play as the install referrer.
+       App Store links get ct= once the App Store Connect provider token (pt) exists. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE1DBT4G8M"></script>
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-LE1DBT4G8M");
     (function () {
+      var q = new URLSearchParams(location.search);
+      var utm = [];
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (k) {
+        if (q.get(k)) utm.push(k + "=" + q.get(k));
+      });
+      if (!utm.length) utm.push("utm_source=mindgameslab.com", "utm_medium=dyd_link");
+      var play = "https://play.google.com/store/apps/details?id=com.mindgameslab.dyd&referrer=" + encodeURIComponent(utm.join("&"));
+      var apple = "https://apps.apple.com/app/id6753778076";
+      document.addEventListener("DOMContentLoaded", function () {
+        var p = document.getElementById("play"); if (p) p.href = play;
+      });
       var ua = navigator.userAgent || "";
       var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-      if (/Android/i.test(ua)) location.replace("https://play.google.com/store/apps/details?id=com.mindgameslab.dyd");
-      else if (ios) location.replace("https://apps.apple.com/app/id6753778076");
+      var target = /Android/i.test(ua) ? play : (ios ? apple : null);
+      if (!target) return;
+      var gone = false;
+      function go() { if (!gone) { gone = true; location.replace(target); } }
+      gtag("event", "store_redirect", { store: ios ? "app_store" : "google_play", transport_type: "beacon", event_callback: go });
+      setTimeout(go, 800);
     })();
   </script>
   <style>
@@ -44,7 +67,7 @@
     <h1>Don't You Dare</h1>
     <p>One brave thing a day. Rate the fear, do the dare, watch it shrink. Free, no account, no ads.</p>
     <a class="btn ink" href="https://apps.apple.com/app/id6753778076">Get it on the App Store</a>
-    <a class="btn outline" href="https://play.google.com/store/apps/details?id=com.mindgameslab.dyd">Get it on Google Play</a>
+    <a class="btn outline" id="play" href="https://play.google.com/store/apps/details?id=com.mindgameslab.dyd">Get it on Google Play</a>
     <small>By <a href="https://mindgameslab.com/apps/dont-you-dare.html">Mind Games Lab</a></small>
   </main>
 </body>
