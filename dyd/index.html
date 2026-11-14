@@ -19,7 +19,7 @@
   <!-- The link Don't You Dare puts in every share (and the dare-story link): sends phones straight to their store,
        shows both badges elsewhere. 2026-11-13: GA counts the visit (with its utm_*) BEFORE the redirect (it used to
        redirect first, so nothing was counted), and the utm_* ride along to Google Play as the install referrer.
-       App Store links get ct= once the App Store Connect provider token (pt) exists. -->
+       App Store links carry pt=127637749 (provider token, 11/14) + ct=<utm_source>_<utm_medium> (max 40 chars). -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE1DBT4G8M"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,9 +34,11 @@
       });
       if (!utm.length) utm.push("utm_source=mindgameslab.com", "utm_medium=dyd_link");
       var play = "https://play.google.com/store/apps/details?id=com.mindgameslab.dyd&referrer=" + encodeURIComponent(utm.join("&"));
-      var apple = "https://apps.apple.com/app/id6753778076";
+      var ct = (q.get("utm_source") || "dyd_link") + (q.get("utm_medium") ? "_" + q.get("utm_medium") : "");
+      var apple = "https://apps.apple.com/app/id6753778076?pt=127637749&mt=8&ct=" + encodeURIComponent(ct.slice(0, 40));
       document.addEventListener("DOMContentLoaded", function () {
         var p = document.getElementById("play"); if (p) p.href = play;
+        var a = document.getElementById("apple"); if (a) a.href = apple;
       });
       var ua = navigator.userAgent || "";
       var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
@@ -66,7 +68,7 @@
   <main>
     <h1>Don't You Dare</h1>
     <p>One brave thing a day. Rate the fear, do the dare, watch it shrink. Free, no account, no ads.</p>
-    <a class="btn ink" href="https://apps.apple.com/app/id6753778076">Get it on the App Store</a>
+    <a class="btn ink" id="apple" href="https://apps.apple.com/app/id6753778076?pt=127637749&ct=dyd_link&mt=8">Get it on the App Store</a>
     <a class="btn outline" id="play" href="https://play.google.com/store/apps/details?id=com.mindgameslab.dyd">Get it on Google Play</a>
     <small>By <a href="https://mindgameslab.com/apps/dont-you-dare.html">Mind Games Lab</a></small>
   </main>
